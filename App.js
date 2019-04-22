@@ -9,9 +9,19 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, SafeAreaView, View } from "react-native";
 import { WebView } from "react-native-webview";
+import Orientation from "react-native-orientation";
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    // this locks the view to Portrait Mode
+    Orientation.lockToLandscapeRight();
+  }
+
   render() {
     return (
       <View style={styles.container}>
