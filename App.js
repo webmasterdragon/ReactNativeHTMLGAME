@@ -10,6 +10,17 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, SafeAreaView, View } from "react-native";
 import { WebView } from "react-native-webview";
 import Orientation from "react-native-orientation";
+import StaticServer from "react-native-static-server";
+
+let server = new StaticServer(8080);
+
+// Start the server
+server.start().then(url => {
+  console.log("Serving at URL", url);
+});
+
+// Stop the server
+server.stop();
 
 type Props = {};
 export default class App extends Component<Props> {
